@@ -183,6 +183,8 @@ namespace ogrenciNotHesaplama
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.projenotortalamasi);
             this.panel2.Controls.Add(this.sinavoran2);
             this.panel2.Controls.Add(this.sinavoran1);
