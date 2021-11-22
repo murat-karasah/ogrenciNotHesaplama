@@ -13,6 +13,7 @@ namespace ogrenciNotHesaplama
     public partial class Form1 : Form
     {
        public static double sinav1, sinav2, proje, ortalama;
+        public  int sinav1oran, sinav2oran, projeorani, gecmenotugiris;
         public static string ad, soyad;
         public static string durum;
         public int i = 1;
@@ -40,7 +41,8 @@ namespace ogrenciNotHesaplama
         {
 
 
-            if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(textBox4.Text) || string.IsNullOrEmpty(textBox5.Text))
+            if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(textBox4.Text) || string.IsNullOrEmpty(textBox5.Text) || sinavoran1.Value== 0
+                || sinavoran2.Value == 0 || projenotortalamasi.Value == 0 || gecmenotu.Value == 0)
             {
                 MessageBox.Show("Gerekli Alanları Doldurunuz!");
 
@@ -55,10 +57,16 @@ namespace ogrenciNotHesaplama
             sinav1 = Convert.ToDouble(textBox3.Text);
             sinav2 = Convert.ToDouble(textBox4.Text);
             proje = Convert.ToDouble(textBox5.Text);
-            ortalama = (sinav1 + sinav2 + proje) / 3;
+                sinav1oran = Convert.ToInt32(sinavoran1.Value);
+                sinav2oran = Convert.ToInt32(sinavoran2.Value);
+                projeorani = Convert.ToInt32(projenotortalamasi.Value);
+                gecmenotugiris = Convert.ToInt32(gecmenotu.Value);
+
+                ortalama = (sinav1*sinav1oran)/100 + (sinav2*sinav2oran)/100 + (proje*projeorani)/100 ;
+
                 ortalama = Math.Round(ortalama, 2);
 
-                if (ortalama>=50)
+                if (ortalama>=gecmenotugiris)
             {
                  durum = "✓ Başarılı";
             }
